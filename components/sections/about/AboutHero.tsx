@@ -2,27 +2,29 @@ import Container from "@/components/ui/Container";
 
 export default function AboutHero() {
   return (
-    <section className="py-32">
+    <section className="py-24 sm:py-32">
       <Container>
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-4xl text-center flex flex-col items-center">
 
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
-            ABOUT
+          {/* Page Section Label */}
+          <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-gray-500 leading-none">
+            ABOUT • OntoPhi
           </p>
 
-          <h1 className="mt-6 text-5xl font-bold tracking-tight md:text-7xl">
-            Engineering
-            <br />
-            Intelligent Computing
+          {/* Core Philosophy Statement */}
+          <p className="mt-4 text-base font-medium italic tracking-wide text-gray-600">
+            Science is Curiosity
+          </p>
+
+          {/* Unified Main Headline - Matches the Hero Page exactly */}
+          <h1 className="mt-6 text-2xl font-semibold tracking-tight text-black sm:text-3xl md:text-6xl xl:text-7xl xl:leading-[1.15]">
+            Exploring the Foundations of Future Computing
           </h1>
 
-          <p className="mx-auto mt-8 max-w-3xl text-xl leading-9 text-gray-600">
-            OntoPhi advances intelligent computing through
-            research, engineering,
-            systems software,
-            artificial intelligence,
-            neuroscience,
-            and open innovation.
+          {/* Unified Support Description Text - Matches the Hero Page exactly */}
+          <p className="mx-auto mt-8 max-w-3xl text-base sm:text-lg leading-relaxed text-gray-600">
+            OntoPhi explores the foundations of intelligence through computation, cognition, and engineering 
+            transforming curiosity into breakthrough technologies and impactful products.
           </p>
 
         </div>
@@ -30,3 +32,5 @@ export default function AboutHero() {
     </section>
   );
 }
+
+
