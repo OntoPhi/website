@@ -10,20 +10,22 @@ export default function Footer() {
       <Container>
         <div className="grid gap-12 md:grid-cols-4">
           {/* Brand */}
-          <div>
+          <div className="flex flex-col items-center gap-3 w-full text-center">
+            {/* Logo Link */}
             <Link href="/" className="inline-block">
               <Image
                 src="/logo/website_print.png"
                 alt="OntoPhi"
-                width={100}
+                width={90}
                 height={30}
                 priority
-                className="h-auto w-auto"
+                className="h-auto w-auto object-contain"
               />
             </Link>
 
-            <p className="mt-6 text-gray-600 leading-7">
-              Advancing intelligent computing.
+            {/* Tagline */}
+            <p className="text-[11px] font-semibold tracking-wider text-gray-700 uppercase leading-none">
+            Understand • Discover • Engineer
             </p>
           </div>
 
@@ -33,7 +35,7 @@ export default function Footer() {
               Research
             </h4>
 
-            <div className="mt-4 space-y-3">
+            <div className="mt-4 space-y-2">
               {footerLinks.research.map((item) => (
                 <Link
                   key={item.href}
@@ -52,7 +54,7 @@ export default function Footer() {
               Company
             </h4>
 
-            <div className="mt-4 space-y-3">
+            <div className="mt-4 space-y-2">
               {footerLinks.company.map((item) => (
                 <Link
                   key={item.href}
@@ -71,7 +73,7 @@ export default function Footer() {
               Resources
             </h4>
 
-            <div className="mt-4 space-y-3">
+            <div className="mt-4 space-y-2">
               {footerLinks.resources.map((item) => (
                 <Link
                   key={item.href}
@@ -85,11 +87,17 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-8 text-sm text-gray-500 md:flex-row">
-          <p>© 2026 OntoPhi. All rights reserved.</p>
+       {/* Bottom Bar */}
+       <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-8 text-sm text-gray-500 md:flex-row">
+         {/* Left Side */}
+         <p>© 2026 OntoPhi. All rights reserved.</p>
+       
+         {/* Right-most Side (No period for a cleaner design) */}
+         <p className="font-medium italic tracking-wide text-gray-400 md:text-right">
+           Science is Curiosity
+         </p>
+       </div>
 
-        </div>
       </Container>
     </footer>
   );

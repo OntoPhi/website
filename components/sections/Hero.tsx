@@ -3,224 +3,173 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white py-20 lg:py-28">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-0 h-[720px] w-[720px] -translate-x-1/2 rounded-full bg-gray-100 opacity-60 blur-3xl" />
+    <section className="relative overflow-hidden bg-white py-12 sm:py-16 lg:py-24">
+      {/* Background Graphic Blur */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute left-1/2 top-0 h-[400px] w-[400px] sm:h-[720px] sm:w-[720px] -translate-x-1/2 rounded-full bg-gray-100 opacity-60 blur-3xl" />
       </div>
 
-      <div className="mx-auto max-w-[1440px] px-10 lg:px-12">
-        <div className="grid items-center gap-24 lg:grid-cols-2">
+      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-12">
+        {/* Main Grid Layout: Stacks vertically on mobile, splits into 2-columns on lg screens */}
+        <div className="grid items-center gap-12 sm:gap-16 lg:grid-cols-2 lg:gap-20 xl:gap-24">
 
-          {/* LEFT */}
-
-          <div className="max-w-2xl">
-
-            <p className="mb-8 text-xs font-semibold uppercase tracking-[0.4em] text-gray-600">
+          {/* LEFT COLUMN: Main Typography & Brand Core */}
+          <div className="max-w-2xl flex flex-col order-2 lg:order-1">
+            
+            {/* Tagline: Bumped up slightly for crisp readability */}
+            <p className="text-[11px] font-bold uppercase tracking-[0.35em] text-gray-400 leading-none">
               UNDERSTAND • DISCOVER • ENGINEER
             </p>
-	      <div className="flex flex-col gap-6"> {/* Controls the exact spacing between the two */}
-                <h1 className="mt-8 text-2xl font-light tracking-tight text-gray-700 md:text-2xl">
-                Science is Curiosity.
-                </h1>
-  
-                <h2 className="mb-10 text-4xl font-bold tracking-tight text-black xl:text-[50px]">
-                Exploring the Foundations of Future Computing
-                </h2>
-              </div>
-            <p className="mt-10 max-w-xl text-lg leading-9 text-gray-600 md:text-xl">
-            OntoPhi explores the foundations of intelligence through computation, cognition, and engineering 
-	    —transforming curiosity into breakthrough technologies and impactful products.
+            
+            {/* Responsive Headline */}
+            <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-black sm:text-4xl md:text-5xl xl:text-[52px] xl:leading-[1.15]">
+              Exploring the Foundations of Future Computing
+            </h1>
+            
+            {/* Fluid Description Paragraph: Boosted to clean text-base */}
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-gray-600">
+              OntoPhi explores the foundations of intelligence through computation, cognition, and engineering 
+              —transforming curiosity into breakthrough technologies and impactful products.
             </p>
 
-            <div className="mt-12 flex flex-wrap gap-2">
-
+            {/* Responsive Minimal Arrow Links */}
+            <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8">
+              
+              {/* Link 1 */}
               <Link
                 href="/research"
-                className="rounded-full border border-gray-300 px-8 py-4 text-sm font-medium text-white transition-all duration-300 hover:border-black hover:bg-gray-50"
+                className="group flex items-center gap-2 text-sm font-semibold !text-black transition-colors duration-200 hover:text-gray-600"
               >
-                Explore Research
+                <span>Explore Research</span>
+                {/* SVG Arrow moves on hover due to 'group-hover:translate-x-1' */}
+                <svg 
+                  className="h-4 w-4 transform transition-transform duration-200 group-hover:translate-x-1" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor" 
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </Link>
-
+            
+              {/* Link 2 */}
               <Link
                 href="/engineering"
-                className="rounded-full border border-gray-300 px-8 py-4 text-sm font-medium text-gray-900 transition-all duration-300 hover:border-black hover:bg-gray-50"
+                className="group flex items-center gap-2 text-sm font-semibold !text-black transition-colors duration-200 hover:text-gray-600"
               >
-                Explore Engineering
+                <span>Explore Engineering</span>
+                <svg 
+                  className="h-4 w-4 transform transition-transform duration-200 group-hover:translate-x-1" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor" 
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </Link>
-
+              
             </div>
 
-            {/* Core Domains */}
-
-            <div className="mt-16 grid gap-8 border-t border-gray-200 pt-10 md:grid-cols-3">
+            {/* Core Domains Grid: Upgraded column typography sizes */}
+            <div className="mt-14 grid gap-8 sm:grid-cols-3 sm:gap-6">
 
               <div>
-
-                <h3 className="text-lg font-semibold leading-snug text-black">
-                  Intelligent
-                  <br />
-                  Computing
+                <h3 className="text-sm font-bold uppercase tracking-wider text-black">
+                  Intelligent<br className="hidden sm:inline" /> Computing
                 </h3>
-
-                <p className="mt-3 text-sm leading-6 text-gray-500">
-                  Optimization
-                  <br />
-                  Runtime Systems
-                  <br />
-                  Compiler Technologies
-                  <br />
-                  Edge Computing
-                  <br />
+                <p className="mt-3 text-xs leading-relaxed text-gray-500 sm:text-sm">
+                  Optimization<br />
+                  Runtime Systems<br />
+                  Compiler Technologies<br />
+                  Edge Computing<br />
                   Platforms
                 </p>
-
               </div>
 
               <div>
-
-                <h3 className="text-lg font-semibold leading-snug text-black">
-                  Systems
-                  <br />
-                  Research
+                <h3 className="text-sm font-bold uppercase tracking-wider text-black">
+                  Systems<br className="hidden sm:inline" /> Research
                 </h3>
-
-                <p className="mt-3 text-sm leading-6 text-gray-500">
-                  Optimization &amp;
-                  <br />
-                  Compiler Research
-                  <br />
-                  Distributed Systems
-                  <br />
+                <p className="mt-3 text-xs leading-relaxed text-gray-500 sm:text-sm">
+                  Optimization &amp;<br />
+                  Compiler Research<br />
+                  Distributed Systems<br />
                   Performance Engineering
                 </p>
-
               </div>
 
               <div>
-
-                <h3 className="text-lg font-semibold leading-snug text-black">
-                  Intelligence
-                  <br />
-                  Research
+                <h3 className="text-sm font-bold uppercase tracking-wider text-black">
+                  Intelligence<br className="hidden sm:inline" /> Research
                 </h3>
-
-                <p className="mt-3 text-sm leading-6 text-gray-500">
-                  Computational Neuroscience
-                  <br />
-                  Cognitive Neuroscience
-                  <br />
-                  Neuro engineering
-                  <br />
+                <p className="mt-3 text-xs leading-relaxed text-gray-500 sm:text-sm">
+                  Computational Neuroscience<br />
+                  Cognitive Neuroscience<br />
+                  Neuro engineering<br />
                   Cognitive Systems
                 </p>
-
               </div>
 
             </div>
-
           </div>
 
-          {/* RIGHT */}
+          {/* RIGHT COLUMN: Fluid Interactive Brand Graphic Container */}
+          <div className="relative flex items-center justify-center order-1 lg:order-2 w-full max-w-[540px] mx-auto lg:max-w-none">
+            {/* Responsive square frame container */}
+            <div className="relative flex aspect-square w-full max-w-[420px] sm:max-w-[520px] items-center justify-center">
 
-          <div className="relative flex items-center justify-center">
+              {/* Central Abstract Ambient Glow */}
+              <div className="absolute inset-4 rounded-full bg-gradient-to-br from-gray-50 via-white to-gray-50 opacity-80 blur-3xl" />
 
-            <div className="relative flex h-[580px] w-[580px] items-center justify-center">
+              {/* Decorative Concentric Rings */}
+              <div className="absolute inset-0 rounded-full border border-gray-300" />
+              <div className="absolute inset-[12.5%] rounded-full border border-gray-300" />
+              <div className="absolute inset-[25%] rounded-full border border-gray-300" />
 
-              {/* Glow */}
-
-              <div className="absolute h-[520px] w-[520px] rounded-full bg-gradient-to-br from-gray-100 via-white to-gray-100 opacity-80 blur-3xl" />
-
-              {/* Rings */}
-
-              <div className="absolute h-[520px] w-[520px] rounded-full border border-gray-300" />
-
-              <div className="absolute h-[390px] w-[390px] rounded-full border border-gray-300" />
-
-              <div className="absolute h-[260px] w-[260px] rounded-full border border-gray-300" />
-
-              {/* Logo */}
-
-              <div className="relative z-10 rounded-3xl border border-gray-200 bg-white p-10 shadow-2xl">
-
-                <Image
-                  src="/logo/website_print.png"
-                  alt="OntoPhi"
-                  width={121}
-                  height={121}
-                  priority
-                />
-
+              {/* Central Adaptive Brand Identity Card */}
+              <div className="relative z-10 rounded-2xl sm:rounded-3xl border border-gray-100 bg-white p-6 sm:p-8 shadow-xl">
+                <div className="w-[80px] h-[80px] sm:w-[110px] sm:h-[110px] relative">
+                  <Image
+                    src="/logo/website_print.png"
+                    alt="OntoPhi"
+                    fill
+                    priority
+                    className="object-contain"
+                  />
+                </div>
               </div>
 
-              {/* Card 1 */}
-
-              <div className="absolute left-0 top-10 rounded-2xl border border-gray-200 bg-white px-6 py-4 shadow-xl transition duration-300 hover:-translate-y-1">
-
-                <p className="text-[11px] uppercase tracking-[0.3em] text-gray-500">
-                  Engineering
-                </p>
-
-                <p className="mt-2 font-semibold text-black">
-                  Intelligent Computing
-                </p>
-
+              {/* Floating Cards: Rebuilt with responsive font matching to prevent text clipping */}
+              <div className="absolute left-[-4%] top-[10%] rounded-xl border border-gray-100 bg-white px-3 py-2 sm:px-4 sm:py-2.5 shadow-md transition duration-300 hover:-translate-y-1">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400">Engineering</p>
+                <p className="mt-1 text-xs font-bold text-black whitespace-nowrap">Advanced Computing</p>
               </div>
 
-              {/* Card 2 */}
-
-              <div className="absolute right-0 top-28 rounded-2xl border border-gray-200 bg-white px-6 py-4 shadow-xl transition duration-300 hover:-translate-y-1">
-
-                <p className="text-[11px] uppercase tracking-[0.3em] text-gray-500">
-                  Research
-                </p>
-
-                <p className="mt-2 font-semibold text-black">
-                  Systems Research
-                </p>
-
+              <div className="absolute right-[-4%] top-[22%] rounded-xl border border-gray-100 bg-white px-3 py-2 sm:px-4 sm:py-2.5 shadow-md transition duration-300 hover:-translate-y-1">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400">Research</p>
+                <p className="mt-1 text-xs font-bold text-black whitespace-nowrap">Systems Research</p>
               </div>
 
-              {/* Card 3 */}
-
-              <div className="absolute bottom-24 left-2 rounded-2xl border border-gray-200 bg-white px-6 py-4 shadow-xl transition duration-300 hover:-translate-y-1">
-
-                <p className="text-[11px] uppercase tracking-[0.3em] text-gray-500">
-                  Science
-                </p>
-
-                <p className="mt-2 font-semibold text-black">
-                  Intelligence Research
-                </p>
-
+              <div className="absolute bottom-[20%] left-[-2%] rounded-xl border border-gray-100 bg-white px-3 py-2 sm:px-4 sm:py-2.5 shadow-md transition duration-300 hover:-translate-y-1">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400">Science</p>
+                <p className="mt-1 text-xs font-bold text-black whitespace-nowrap">Intelligence Research</p>
               </div>
 
-              {/* Card 4 */}
-
-              <div className="absolute bottom-24 right-0 rounded-2xl border border-gray-200 bg-white px-6 py-4 shadow-xl transition duration-300 hover:-translate-y-1">
-
-                <p className="text-[11px] uppercase tracking-[0.3em] text-gray-500">
-                  Knowledge
-                </p>
-
-                <p className="mt-2 font-semibold text-black">
-                  Open Source &amp; Insights
-                </p>
-
+              <div className="absolute bottom-[20%] right-[-4%] rounded-xl border border-gray-100 bg-white px-3 py-2 sm:px-4 sm:py-2.5 shadow-md transition duration-300 hover:-translate-y-1">
+                <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400">Knowledge</p>
+                <p className="mt-1 text-xs font-bold text-black whitespace-nowrap">Open Source &amp; Insights</p>
               </div>
 
-              {/* Bottom Badge */}
-
-              <div className="absolute bottom-0 rounded-full border border-gray-300 bg-white px-8 py-3 shadow-lg">
-
-                <p className="text-sm font-medium text-gray-700">
+              {/* Bottom Badge Layer */}
+              <div className="absolute bottom-[-2%] rounded-full border border-gray-200 bg-white px-4 py-2 sm:px-6 sm:py-2.5 shadow-md max-w-[90%] text-center">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500 whitespace-nowrap overflow-hidden text-ellipsis">
                   Research • Engineering • Discovery
                 </p>
-
               </div>
 
             </div>
-
           </div>
 
         </div>
@@ -228,3 +177,4 @@ export default function Hero() {
     </section>
   );
 }
+
