@@ -17,7 +17,7 @@ export default function Home() {
 
       <main className="pt-20">
         <Hero />
-        <CoreTechnologies />
+	{ /*<CoreTechnologies /> */ }
         <ResearchAreas />
         <EngineeringExpertise />
         <Products />
