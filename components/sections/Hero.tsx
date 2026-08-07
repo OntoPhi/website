@@ -19,18 +19,18 @@ export default function Hero() {
             <p className="mb-8 text-xs font-semibold uppercase tracking-[0.4em] text-gray-600">
               UNDERSTAND • DISCOVER • ENGINEER
             </p>
-            <h1 className="mb-10 text-4xl font-bold  tracking-tight text-black  xl:text-[50px]">
-              Engineering the Foundations of Future Computing.
-            </h1>
-
-            <h2 className="mt-8 text-2xl font-light tracking-tight text-gray-700 md:text-4xl">
-            The Unseen Shapes the Seen.
-            </h2>
-
+	      <div className="flex flex-col gap-6"> {/* Controls the exact spacing between the two */}
+                <h1 className="mt-8 text-2xl font-light tracking-tight text-gray-700 md:text-2xl">
+                Science is Curiosity.
+                </h1>
+  
+                <h2 className="mb-10 text-4xl font-bold tracking-tight text-black xl:text-[50px]">
+                Exploring the Foundations of Future Computing
+                </h2>
+              </div>
             <p className="mt-10 max-w-xl text-lg leading-9 text-gray-600 md:text-xl">
-              Advancing the science and engineering of future computing through
-              Intelligent Computing, Systems Research, and Intelligence
-              Research.
+            OntoPhi explores the foundations of intelligence through computation, cognition, and engineering 
+	    —transforming curiosity into breakthrough technologies and impactful products.
             </p>
 
             <div className="mt-12 flex flex-wrap gap-2">
@@ -146,8 +146,8 @@ export default function Hero() {
                 <Image
                   src="/logo/website_print.png"
                   alt="OntoPhi"
-                  width={180}
-                  height={180}
+                  width={121}
+                  height={121}
                   priority
                 />
 
