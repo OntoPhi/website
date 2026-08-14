@@ -5,7 +5,7 @@ export default function Roadmap() {
   return (
     <section className="bg-gray-50 py-24">
       <Container>
-        <div className="text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500">
             Roadmap
           </p>

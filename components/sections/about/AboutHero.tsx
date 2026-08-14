@@ -2,7 +2,7 @@ import Container from "@/components/ui/Container";
 
 export default function AboutHero() {
   return (
-    <section className="py-24 sm:py-32">
+    <section className="py-16 sm:py-24 lg:py-32">
       <Container>
         <div className="mx-auto max-w-4xl text-center flex flex-col items-center">
 

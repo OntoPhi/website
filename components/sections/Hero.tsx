@@ -38,7 +38,7 @@ export default function Hero() {
               {/* Link 1 */}
               <Link
                 href="/research"
-                className="group flex items-center gap-2 text-sm font-semibold !text-black transition-colors duration-200 hover:text-gray-600"
+		className="rounded-full border border-gray-400 px-8 py-2 group flex items-center gap-2 text-sm font-semibold !text-black transition-colors duration-200 hover:text-gray-600"
               >
                 <span>Explore Research</span>
                 {/* SVG Arrow moves on hover due to 'group-hover:translate-x-1' */}
@@ -56,7 +56,7 @@ export default function Hero() {
               {/* Link 2 */}
               <Link
                 href="/engineering"
-                className="group flex items-center gap-2 text-sm font-semibold !text-black transition-colors duration-200 hover:text-gray-600"
+                className="rounded-full border border-gray-400 px-8 py-2 group flex items-center gap-2 text-sm font-semibold !text-black transition-colors duration-200 hover:text-gray-600"
               >
                 <span>Explore Engineering</span>
                 <svg 

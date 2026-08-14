@@ -17,7 +17,7 @@ export default function Mission() {
           </h2>
 
           {/* Core Manufactured Mission Statement */}
-          <p className="mx-auto mt-6 max-w-3xl text-base sm:text-lg leading-relaxed text-gray-600 font-light antialiased">
+          <p className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-gray-600">
             To bridge the fragmentation between computing systems and human cognition by 
             unifying advanced software engineering, mathematics, and neuroscience into 
             highly optimized, open intelligence platforms.

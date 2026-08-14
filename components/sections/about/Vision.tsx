@@ -17,7 +17,7 @@ export default function Vision() {
           </h2>
 
           {/* Simple, Universal, and Legible Vision Statement */}
-          <p className="mx-auto mt-8 text-base sm:text-lg leading-relaxed text-gray-800 font-light antialiased max-w-2xl">
+          <p className="mx-auto mt-6 max-w-4xl text-lg leading-8 text-gray-600">
             To drive a continuous spiral of computing innovation—
             anchoring structured knowledge along a strict mathematical axis, 
             and expanding it into a global ecosystem of optimized compiler infrastructures, 
