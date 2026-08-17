@@ -20,7 +20,19 @@ export default function ContactInfo() {
             <FeatureCard
               key={item.title}
               title={item.title}
-              description={`${item.value}\n\n${item.description}`}
+              description={
+                <div className="flex flex-col gap-2">
+                  <a 
+                    href={`mailto:${item.value}`} 
+                    className="text-blue-600 hover:underline font-medium break-all"
+                  >
+                    {item.value}
+                  </a>
+                  <p className="text-gray-500 text-sm">
+                    {item.description}
+                  </p>
+                </div>
+              }
             />
           ))}
         </Grid>
@@ -28,3 +40,4 @@ export default function ContactInfo() {
     </section>
   );
 }
+

@@ -1,37 +1,29 @@
+import React from "react";
+
 interface SectionHeaderProps {
   badge?: string;
   title: string;
-  description?: string;
-  center?: boolean;
+  description?: React.ReactNode; // Change from string to support JSX structures safely
 }
 
-export default function SectionHeader({
-  badge,
-  title,
-  description,
-  center = true,
-}: SectionHeaderProps) {
+export default function SectionHeader({ badge, title, description }: SectionHeaderProps) {
   return (
-    <div
-      className={`max-w-4xl ${
-        center ? "mx-auto text-center" : ""
-      }`}
-    >
+    <div className="text-center max-w-3xl mx-auto mb-12 flex flex-col items-center">
       {badge && (
-        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500">
+        <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gray-600 bg-gray-100 rounded-full mb-3">
           {badge}
-        </p>
+        </span>
       )}
-
-      <h2 className="mt-4 text-4xl font-bold md:text-5xl">
+      <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl mb-4">
         {title}
       </h2>
-
       {description && (
-        <p className="mt-6 text-lg leading-8 text-gray-600">
+        /* FIX: Render description in a <div> block to avoid nested <p> tag crashes */
+        <div className="text-base text-gray-500 max-w-2xl leading-relaxed">
           {description}
-        </p>
+        </div>
       )}
     </div>
   );
 }
+

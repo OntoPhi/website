@@ -1,34 +1,32 @@
-import Badge from "./Badge";
-import Container from "./Container";
+import React from "react";
 
 interface PageHeroProps {
   badge: string;
-  title: string;
+  title: string; // Change back to string for standard parsing
   description: string;
 }
 
-export default function PageHero({
-  badge,
-  title,
-  description,
-}: PageHeroProps) {
+export default function PageHero({ badge, title, description }: PageHeroProps) {
   return (
-    <section className="py-32">
-      <Container>
-        <div className="mx-auto max-w-5xl text-center">
-
-          <Badge>{badge}</Badge>
-
-          <h1 className="mt-8 text-5xl font-bold tracking-tight md:text-7xl whitespace-pre-line">
-            {title}
-          </h1>
-
-          <p className="mx-auto mt-10 max-w-4xl text-xl leading-9 text-gray-600">
-            {description}
-          </p>
-
-        </div>
-      </Container>
+    <section className="flex flex-col items-center text-center py-20 px-4 w-full max-w-5xl mx-auto">
+      {/* Badge Element */}
+      <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gray-600 bg-gray-100 rounded-full mb-4">
+        {badge}
+      </span>
+      
+      {/* 
+        The 'max-w-2xl sm:max-w-none' ensures the container doesn't choke the text wide-span width.
+        The 'whitespace-normal' ensures the browser automatically fits layout based on viewports.
+      */}
+      <h1 className="w-full max-w-2xl sm:max-w-none text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight mb-6 whitespace-normal">
+        {title}
+      </h1>
+      
+      {/* Subtext Description */}
+      <p className="text-base sm:text-lg text-gray-500 max-w-2xl leading-relaxed">
+        {description}
+      </p>
     </section>
   );
 }
+

@@ -19,14 +19,12 @@ export const metadata: Metadata = {
     "Artificial Intelligence",
     "Machine Learning",
     "Deep Learning",
-    "Linux Kernel",
-    "Device Drivers",
     "Systems Software",
     "Compiler",
     "Runtime",
     "High Performance Computing",
     "Edge AI",
-    "Neuroengineering",
+    "Neuro engineering",
     "Computational Neuroscience",
     "Brain Inspired Computing",
     "OntoPhi",
@@ -47,6 +45,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  // FIX: Protects contact text layers from unexpected client modifications
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 export default function RootLayout({
@@ -60,3 +64,4 @@ export default function RootLayout({
     </html>
   );
 }
+
