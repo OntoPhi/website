@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// Ensure your private environment API key is mapped correctly
-const resend = new Resend(process.env.RESEND_API_KEY);
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: Request) {
@@ -11,7 +9,6 @@ export async function POST(request: Request) {
     const { name, email, subject, message, honeypot } = body;
 
     // 1. SILENT SPAM FILTER (Honeypot method)
-    // If a hidden bot input contains text data, reject it immediately
     if (honeypot && honeypot.trim() !== "") {
       return NextResponse.json({ success: true, message: "Filtered." }, { status: 200 });
     }
@@ -29,25 +26,40 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Inquiry body must be at least 10 characters." }, { status: 400 });
     }
 
-    // 3. DEPARTMENT-SPECIFIC EMAIL ROUTING MATRIX
+    // 3. PRODUCTION FIX: Defer client initialization to runtime only
+    // This stops Next.js from looking for the API key during the 'next build' phase
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error("Critical System Configuration Error: RESEND_API_KEY environment variable is missing.");
+      return NextResponse.json({ error: "Mailing service configuration mismatch." }, { status: 500 });
+    }
+    const resend = new Resend(apiKey);
+
+    // 4. DEPARTMENT-SPECIFIC EMAIL ROUTING MATRIX
     let targetDestination = "hello@ontophi.com";
     if (subject === "research") targetDestination = "research@ontophi.com";
     if (subject === "engineering") targetDestination = "engineering@ontophi.com";
     if (subject === "careers") targetDestination = "careers@ontophi.com";
 
-    // 4. DESPATCH DISPATCH DISPATCH VIA SECURE LAYER
-    // CHANGE THIS LINE IN YOUR CODE:
+    // 5. DISPATCH VIA SECURE LAYER
     const emailResult = await resend.emails.send({
-      // FIX: Change 'system@ontophi.com' to 'system@://ontophi.com'
-      // MUST use your verified 'send' subdomain structure
-      from: "OntoPhi Portal <system@://ontophi.com>",
-
+      from: "OntoPhi Portal <system@://ontophi.com>", 
       to: [targetDestination],
-      replyTo: email,
+      replyTo: email, 
       subject: `[${subject.toUpperCase()}] New Contact Submission from ${name}`,
-      html: `...`,
+      html: `
+        <div style="font-family: sans-serif; padding: 20px; color: #111827; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 12px;">
+          <h2 style="font-size: 20px; border-bottom: 1px solid #e5e7eb; padding-bottom: 10px; margin-top: 0;">New Portal Inquiry</h2>
+          <p style="margin: 10px 0;"><strong>Sender Name:</strong> ${name}</p>
+          <p style="margin: 10px 0;"><strong>Sender Email:</strong> <a href="mailto:${email}">${email}</a></p>
+          <p style="margin: 10px 0;"><strong>Target Department:</strong> ${subject.toUpperCase()}</p>
+          <div style="margin-top: 20px;">
+            <strong style="display: block; margin-bottom: 8px;">Message Content:</strong>
+            <div style="background: #f9fafb; padding: 15px; border-radius: 8px; border: 1px solid #f3f4f6; white-space: pre-wrap; font-size: 14px; line-height: 1.6;">${message}</div>
+          </div>
+        </div>
+      `,
     });
-
 
     if (emailResult.error) {
       console.error("Mailing Engine Execution Crash:", emailResult.error);
@@ -58,7 +70,7 @@ export async function POST(request: Request) {
 
   } catch (error) {
     console.error("Global API Exception Event:", error);
-    return NextResponse.json({ error: "Internal server compilation processing error." }, { status: 500 });
+    return NextResponse.json({ error: "Internal server processing error." }, { status: 500 });
   }
 }
 
