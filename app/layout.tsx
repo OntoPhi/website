@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
-  // FIX: Protects contact text layers from unexpected client modifications
+  // Safeguards email and phone formats against mobile browser layout manipulation
   formatDetection: {
     email: false,
     address: false,
@@ -60,7 +60,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>{children}</body>
+      {/* 
+        FIX: Adding suppressHydrationWarning here bypasses hydration crashes 
+        caused by external browser translation extensions injecting custom styles.
+      */}
+      <body className={inter.className} suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

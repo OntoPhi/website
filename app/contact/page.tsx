@@ -9,9 +9,14 @@ import ContactForm from "@/components/sections/contact/ContactForm";
 import FAQ from "@/components/sections/contact/FAQ";
 import ContactCTA from "@/components/sections/contact/ContactCTA";
 
+
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with OntoPhi.",
+  title: "Connect with Our Labs",
+  description: "Connect with OntoPhi. Reach our specialized divisions for core computing systems infrastructure, compiler engineering, or computational neuroscience partnerships.",
+  openGraph: {
+    title: "Contact OntoPhi | Joint Computing Research Systems",
+    description: "Inquire about technology partnerships, academic research collaborations, or engineering career tracks.",
+  },
 };
 
 export default function ContactPage() {
@@ -19,7 +24,7 @@ export default function ContactPage() {
     <>
       <Navbar />
 
-      <main className="pt-20">
+      <main className="pt-10">
         <ContactHero />
         <ContactInfo />
         <ContactForm />
@@ -30,4 +35,6 @@ export default function ContactPage() {
       <Footer />
     </>
   );
+
 }
+
