@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import fs from "fs";
+import path from "path";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -8,39 +10,36 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, email, subject, message, honeypot } = body;
 
-    // 1. SILENT SPAM FILTER (Honeypot method)
     if (honeypot && honeypot.trim() !== "") {
       return NextResponse.json({ success: true, message: "Filtered." }, { status: 200 });
     }
 
-    // 2. BACK-END PAYLOAD SECURITY VALIDATION
     if (!name || !email || !subject || !message) {
-      return NextResponse.json({ error: "Missing required form fields." }, { status: 400 });
+      return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
     }
 
-    if (!emailRegex.test(email)) {
-      return NextResponse.json({ error: "Please provide a valid email format." }, { status: 400 });
-    }
+    // 3. ENHANCED HOSTINGER DESKTOP ENVIRONMENT LOADER
+    let apiKey = process.env.RESEND_API_KEY;
 
-    if (message.trim().length < 10) {
-      return NextResponse.json({ error: "Inquiry body must be at least 10 characters." }, { status: 400 });
-    }
-
-    // 3. FIX: DEFERRED DYNAMIC INITIALIZATION
-    // This allows Next.js to compile the file during production builds without crashing.
-    const apiKey = process.env.RESEND_API_KEY;
+    // Fallback: If Hostinger environment variables are empty, read the key from our local text asset
     if (!apiKey) {
-      console.error("Critical System Configuration Error: RESEND_API_KEY environment variable is missing.");
-      return NextResponse.json({ error: "Mailing service configuration mismatch." }, { status: 500 });
+      try {
+        const credentialsPath = path.join(process.cwd(), "public", "resend-credentials.txt");
+        if (fs.existsSync(credentialsPath)) {
+          apiKey = fs.readFileSync(credentialsPath, "utf8").trim();
+        }
+      } catch (fsError) {
+        console.error("Local file system reader exception:", fsError);
+      }
+    }
+
+    if (!apiKey) {
+      return NextResponse.json({ error: "Mailing service credentials not found." }, { status: 500 });
     }
     
-    // Instantiating Resend safely inside the request runtime block instead of at the root file level
     const resend = new Resend(apiKey);
-
-    // 4. DEPARTMENT-SPECIFIC EMAIL ROUTING MATRIX
     let targetDestination = "hello@ontophi.com"; 
 
-    // 5. DISPATCH VIA SECURE LAYER
     const emailResult = await resend.emails.send({
       from: "OntoPhi Portal <system@://ontophi.com>", 
       to: [targetDestination],
@@ -61,14 +60,12 @@ export async function POST(request: Request) {
     });
 
     if (emailResult.error) {
-      console.error("Mailing Engine Execution Crash:", emailResult.error);
       return NextResponse.json({ error: "Failed to transmit message securely." }, { status: 500 });
     }
 
     return NextResponse.json({ success: true }, { status: 200 });
 
   } catch (error) {
-    console.error("Global API Exception Event:", error);
     return NextResponse.json({ error: "Internal server processing error." }, { status: 500 });
   }
 }
