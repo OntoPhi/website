@@ -58,7 +58,7 @@ export default function Home() {
 
       <Navbar />
 
-      <main className="pt-10">
+      <main className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         <Hero />
         { /*<CoreTechnologies /> */ }
         <ResearchAreas />
@@ -72,3 +72,5 @@ export default function Home() {
     </>
   );
 }
+
+

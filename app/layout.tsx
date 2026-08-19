@@ -1,71 +1,21 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Providers } from "./providers"; // Import your provider component
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ontophi.com"),
-  title: {
-    default: "OntoPhi",
-    template: "%s | OntoPhi",
-  },
-  description:
-    "Advancing intelligent computing through AI, Systems Software, Linux Kernel, Device Drivers, High-Performance Computing, and Brain-Inspired Computing.",
-  keywords: [
-    "Artificial Intelligence",
-    "Machine Learning",
-    "Deep Learning",
-    "Systems Software",
-    "Compiler",
-    "Runtime",
-    "High Performance Computing",
-    "Edge AI",
-    "Neuro engineering",
-    "Computational Neuroscience",
-    "Brain Inspired Computing",
-    "OntoPhi",
-  ],
-  authors: [
-    {
-      name: "OntoPhi",
-    },
-  ],
-  creator: "OntoPhi",
-  publisher: "OntoPhi",
-  openGraph: {
-    title: "OntoPhi",
-    description:
-      "Engineering Intelligent Computing through Research and Innovation.",
-    url: "https://ontophi.com",
-    siteName: "OntoPhi",
-    locale: "en_US",
-    type: "website",
-  },
-  // Safeguards email and phone formats against mobile browser layout manipulation
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  title: "OntoPhi",
+  description: "Advancing intelligent computing structures.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      {/* 
-        FIX: Adding suppressHydrationWarning here bypasses hydration crashes 
-        caused by external browser translation extensions injecting custom styles.
-      */}
       <body className={inter.className} suppressHydrationWarning>
-        {children}
+        {/* Wrap children context to propagate dark mode values */}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

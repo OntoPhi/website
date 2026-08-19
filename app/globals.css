@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
-/* ----------------------------------------
-   Root Variables
----------------------------------------- */
+/* 
+   TAILWIND V4 DARK MODE CONFIGURATION:
+   This maps Tailwind's "dark:" utility prefixes straight onto 
+   the manual .dark class selector appended by next-themes.
+*/
+@variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
@@ -15,6 +18,19 @@
   --muted: #f9fafb;
 
   --radius: 0.75rem;
+}
+
+/* 
+   MANUAL TOGGLE OVERRIDE CELL:
+   Forces your system variables to flip cleanly when next-themes 
+   toggles the root HTML container class state manually.
+*/
+.dark {
+  --background: #09090b;
+  --foreground: #f5f5f5;
+
+  --border: #27272a;
+  --muted: #18181b;
 }
 
 /* ----------------------------------------
@@ -44,6 +60,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   text-rendering: optimizeLegibility;
+  
+  /* Smoothly shifts global core colors during theme flips */
+  transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 /* ----------------------------------------
@@ -99,6 +118,11 @@ svg {
   color: white;
 }
 
+.dark ::selection {
+  background: white;
+  color: black;
+}
+
 /* ----------------------------------------
    Scrollbar
 ---------------------------------------- */
@@ -109,11 +133,20 @@ svg {
 
 ::-webkit-scrollbar-track {
   background: #f3f4f6;
+  transition: background-color 0.3s ease;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #18181b;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #9ca3af;
   border-radius: 999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #52525b;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -144,6 +177,16 @@ svg {
   -webkit-text-fill-color: transparent;
 }
 
+.dark .text-gradient {
+  background: linear-gradient(
+    to right,
+    #f5f5f5,
+    #9ca3af
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .card-hover {
   transition:
     transform 0.3s ease,
@@ -152,9 +195,11 @@ svg {
 
 .card-hover:hover {
   transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
 
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.08);
+.dark .card-hover:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* ----------------------------------------
@@ -166,31 +211,19 @@ svg {
   outline-offset: 2px;
 }
 
+.dark :focus-visible {
+  outline: 2px solid #f5f5f5;
+}
+
 /* ----------------------------------------
-   Dark Mode (Future Ready)
+   System Preference Fallback
 ---------------------------------------- */
-
 @media (prefers-color-scheme: dark) {
-
-  :root {
+  :root:not(.light) {
     --background: #09090b;
     --foreground: #f5f5f5;
-
     --border: #27272a;
     --muted: #18181b;
   }
-
-  ::selection {
-    background: white;
-    color: black;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #18181b;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #52525b;
-  }
-
 }
+

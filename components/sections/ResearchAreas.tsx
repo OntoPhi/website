@@ -3,8 +3,8 @@ import { researchPillars } from "@/content/research";
 
 export default function ResearchAreas() {
   return (
-    <section className="border-t border-gray-100 py-28">
-      <div className="mx-auto max-w-[1400px] px-8 lg:px-12">
+    <section className="py-20 bg-gray-50/50 dark:bg-gray-900/30 border-y border-gray-100 dark:border-gray-900 transition-colors duration-300">
+      <div className="mx-auto max-w-[1200px] px-8 lg:px-8">
 
         {/* Section Header */}
 
@@ -28,3 +28,4 @@ export default function ResearchAreas() {
     </section>
   );
 }
+

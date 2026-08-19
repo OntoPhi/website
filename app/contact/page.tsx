@@ -23,8 +23,7 @@ export default function ContactPage() {
   return (
     <>
       <Navbar />
-
-      <main className="pt-10">
+      <main className="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-300">
         <ContactHero />
         <ContactInfo />
         <ContactForm />
