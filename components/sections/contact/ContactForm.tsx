@@ -46,7 +46,7 @@ export default function ContactForm() {
         throw new Error(data.error || "Server processing exception.");
       }
 
-      setStatus({ type: "success", message: "Inquiry successfully routed to our systems group." });
+      setStatus({ type: "success", message: "Thank you. Your inquiry has been received by the OntoPhi team." });
       setFormData({ name: "", email: "", subject: "general", message: "", honeypot: "" });
     } catch (error: any) {
       setStatus({ type: "error", message: error.message || "Network transmission error." });
