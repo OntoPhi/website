@@ -26,26 +26,25 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Inquiry body must be at least 10 characters." }, { status: 400 });
     }
 
-    // 3. PRODUCTION FIX: Defer client initialization to runtime only
-    // This stops Next.js from looking for the API key during the 'next build' phase
+    // 3. FIX: DEFERRED DYNAMIC INITIALIZATION
+    // This allows Next.js to compile the file during production builds without crashing.
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
       console.error("Critical System Configuration Error: RESEND_API_KEY environment variable is missing.");
       return NextResponse.json({ error: "Mailing service configuration mismatch." }, { status: 500 });
     }
+    
+    // Instantiating Resend safely inside the request runtime block instead of at the root file level
     const resend = new Resend(apiKey);
 
     // 4. DEPARTMENT-SPECIFIC EMAIL ROUTING MATRIX
-    let targetDestination = "hello@ontophi.com";
-    if (subject === "research") targetDestination = "research@ontophi.com";
-    if (subject === "engineering") targetDestination = "engineering@ontophi.com";
-    if (subject === "careers") targetDestination = "careers@ontophi.com";
+    let targetDestination = "hello@ontophi.com"; 
 
     // 5. DISPATCH VIA SECURE LAYER
     const emailResult = await resend.emails.send({
       from: "OntoPhi Portal <system@://ontophi.com>", 
       to: [targetDestination],
-      replyTo: email, 
+      replyTo: email && email.includes("@") ? email.trim() : "hello@ontophi.com", 
       subject: `[${subject.toUpperCase()}] New Contact Submission from ${name}`,
       html: `
         <div style="font-family: sans-serif; padding: 20px; color: #111827; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 12px;">
