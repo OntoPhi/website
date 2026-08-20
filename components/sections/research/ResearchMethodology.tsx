@@ -5,91 +5,98 @@ const methodology = [
     step: "01",
     title: "Observe",
     description:
-      "Study natural intelligence, computing systems, and real-world engineering challenges.",
+      "Study natural phenomena, computational systems, cognition, and real-world engineering challenges.",
   },
   {
     step: "02",
-    title: "Understand",
+    title: "Question",
     description:
-      "Develop a scientific understanding through research, experimentation, and analysis.",
+      "Challenge assumptions, identify fundamental problems, and ask questions that reveal new possibilities.",
   },
   {
     step: "03",
-    title: "Model",
+    title: "Understand",
     description:
-      "Create mathematical, computational, and engineering models that capture the underlying principles.",
+      "Build deeper understanding through research, analysis, experimentation, and interdisciplinary inquiry.",
   },
   {
     step: "04",
-    title: "Engineer",
+    title: "Model",
     description:
-      "Transform research into practical software, systems, tools, and intelligent platforms.",
+      "Translate underlying principles into mathematical, computational, and system-level models that can be tested.",
   },
   {
     step: "05",
-    title: "Validate",
+    title: "Experiment",
     description:
-      "Evaluate solutions through experiments, benchmarks, and real-world testing.",
+      "Test hypotheses through prototypes, simulations, experiments, benchmarks, and empirical evaluation.",
   },
   {
     step: "06",
-    title: "Optimize",
+    title: "Engineer",
     description:
-      "Improve performance, efficiency, scalability, and reliability across the computing stack.",
+      "Transform validated ideas into software, algorithms, systems, tools, and practical technologies.",
   },
   {
     step: "07",
-    title: "Open Innovation",
+    title: "Validate",
     description:
-      "Share knowledge through publications, open-source projects, and collaboration.",
+      "Measure performance, efficiency, scalability, reliability, and real-world usefulness.",
   },
   {
     step: "08",
-    title: "Real-World Impact",
+    title: "Impact",
     description:
-      "Apply research to solve meaningful engineering and scientific problems.",
+      "Translate outcomes into useful technologies, open knowledge, and lasting scientific progress.",
   },
 ];
 
 export default function ResearchMethodology() {
   return (
-    <section className="bg-gray-50 py-24">
+    <section className="bg-gray-50 py-20 transition-colors duration-300 dark:bg-gray-900/40 sm:py-24">
       <Container>
         <div className="mx-auto max-w-5xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500">
+
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400">
             Research Methodology
           </p>
 
-          <h2 className="mt-4 text-4xl font-bold">
-            From Scientific Discovery to Engineering Impact
+          <h2 className="mt-3 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+            From Curiosity to Impact
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
-            Every research initiative follows a structured methodology that
-            connects scientific understanding with practical engineering.
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-gray-600 dark:text-gray-400 sm:text-lg sm:leading-8">
+            We move from observation and fundamental questions to scientific
+            understanding, experimentation, engineering, and measurable impact.
           </p>
+
         </div>
 
-        <div className="mx-auto mt-20 max-w-5xl space-y-8">
+        <div className="mx-auto mt-12 max-w-5xl space-y-4">
           {methodology.map((item) => (
             <div
               key={item.step}
-              className="flex flex-col gap-6 rounded-2xl border border-gray-200 bg-white p-8 transition hover:shadow-lg md:flex-row"
+              className="flex flex-col gap-5 rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300 hover:border-black hover:shadow-lg dark:border-gray-800 dark:bg-gray-950 dark:hover:border-white sm:p-7 md:flex-row"
             >
-              <div className="w-20 shrink-0">
-                <span className="text-3xl font-bold">{item.step}</span>
+              <div className="w-16 shrink-0">
+                <span className="text-2xl font-bold tracking-tight text-gray-300 dark:text-gray-700">
+                  {item.step}
+                </span>
               </div>
 
               <div>
-                <h3 className="text-2xl font-semibold">{item.title}</h3>
+                <h3 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-2xl">
+                  {item.title}
+                </h3>
 
-                <p className="mt-3 leading-8 text-gray-600">
+                <p className="mt-2 max-w-3xl text-base leading-7 text-gray-600 dark:text-gray-400">
                   {item.description}
                 </p>
               </div>
             </div>
           ))}
         </div>
+
       </Container>
     </section>
   );

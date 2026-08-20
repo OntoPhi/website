@@ -2,78 +2,85 @@ import Container from "@/components/ui/Container";
 
 const roadmap = [
   {
-    year: "2026",
-    title: "Research Foundation",
+    phase: "01",
+    title: "Foundation",
     description:
-      "Establish core research in neuroscience, artificial intelligence, systems software, and intelligent computing.",
+      "Establish research foundations across cognition, computation, machine learning, and systems.",
   },
   {
-    year: "2027",
-    title: "Open Research Platform",
+    phase: "02",
+    title: "Exploration",
     description:
-      "Launch open-source research frameworks, engineering tools, and collaborative projects.",
+      "Develop hypotheses, models, prototypes, and experiments to investigate new ideas.",
   },
   {
-    year: "2028",
-    title: "Optimization Frameworks",
+    phase: "03",
+    title: "Discovery",
     description:
-      "Develop compiler, runtime, and AI optimization technologies for intelligent computing.",
+      "Translate findings into new methods, algorithms, architectures, and computational approaches.",
   },
   {
-    year: "2029",
-    title: "Developer Ecosystem",
+    phase: "04",
+    title: "Engineering",
     description:
-      "Provide developer tools, documentation, SDKs, and research resources.",
+      "Transform validated research into software, frameworks, tools, and practical technologies.",
   },
   {
-    year: "2030+",
-    title: "Intelligent Computing Infrastructure",
+    phase: "05",
+    title: "Open Ecosystem",
     description:
-      "Advance next-generation computing platforms integrating AI, systems software, and brain-inspired intelligence.",
+      "Share knowledge through open source, publications, developer resources, and collaboration.",
+  },
+  {
+    phase: "06",
+    title: "New Frontiers",
+    description:
+      "Pursue emerging directions where cognition, computation, and engineering converge.",
   },
 ];
 
 export default function ResearchRoadmap() {
   return (
-    <section className="py-24">
+    <section className="bg-white py-20 transition-colors duration-300 dark:bg-gray-950 sm:py-24">
       <Container>
         <div className="mx-auto max-w-5xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500">
+
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500 dark:text-gray-400">
             Research Roadmap
           </p>
 
-          <h2 className="mt-4 text-4xl font-bold">
-            Long-Term Research Vision
+          <h2 className="mt-3 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+            From Questions to New Frontiers
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
-            Our roadmap reflects a long-term commitment to advancing intelligent
-            computing through research, engineering, and open collaboration.
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-7 text-gray-600 dark:text-gray-400 sm:text-lg sm:leading-8">
+            Research evolves continuously—from fundamental questions and
+            discovery to engineering, collaboration, and new directions.
           </p>
+
         </div>
 
-        <div className="mx-auto mt-16 max-w-4xl space-y-6">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-2 lg:grid-cols-3">
           {roadmap.map((item) => (
             <div
-              key={item.year}
-              className="rounded-2xl border border-gray-200 p-8 transition hover:border-black hover:shadow-lg"
+              key={item.phase}
+              className="rounded-2xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-black hover:shadow-lg dark:border-gray-800 dark:bg-gray-900 dark:hover:border-white"
             >
-              <div className="flex flex-col gap-6 md:flex-row">
-                <div className="w-28 shrink-0">
-                  <span className="text-2xl font-bold">{item.year}</span>
-                </div>
+              <span className="text-sm font-semibold tracking-widest text-gray-400 dark:text-gray-600">
+                {item.phase}
+              </span>
 
-                <div>
-                  <h3 className="text-2xl font-semibold">{item.title}</h3>
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                {item.title}
+              </h3>
 
-                  <p className="mt-3 leading-8 text-gray-600">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
+              <p className="mt-3 text-base leading-7 text-gray-600 dark:text-gray-400">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>
+
       </Container>
     </section>
   );
