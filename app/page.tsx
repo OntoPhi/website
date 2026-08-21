@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
-import CoreTechnologies from "@/components/sections/CoreTechnologies";
 import ResearchAreas from "@/components/sections/ResearchAreas";
 import EngineeringExpertise from "@/components/sections/EngineeringExpertise";
 import Products from "@/components/sections/Products";
@@ -60,7 +59,6 @@ export default function Home() {
 
       <main className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         <Hero />
-        { /*<CoreTechnologies /> */ }
         <ResearchAreas />
         <EngineeringExpertise />
         <Products />
