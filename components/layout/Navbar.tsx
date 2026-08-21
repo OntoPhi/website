@@ -38,8 +38,8 @@ export default function Navbar() {
             <Image
               src="/logo/website_print.png"
               alt="OntoPhi Logo"
-              width={48}
-              height={48}
+              width={60}
+              height={60}
               priority
               className="h-10 w-auto object-contain dark:invert"
             />
