@@ -10,11 +10,43 @@ import FAQ from "@/components/sections/contact/FAQ";
 import ContactCTA from "@/components/sections/contact/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Connect with Our Labs",
-  description: "Connect with OntoPhi. Reach our specialized divisions for core computing systems infrastructure, compiler engineering, or computational neuroscience partnerships.",
+  title: "Contact",
+  description:
+    "Contact OntoPhi about research, engineering, partnerships, open-source projects, computing platforms, and opportunities to collaborate.",
+
+  keywords: [
+    "OntoPhi contact",
+    "OntoPhi research",
+    "computing partnerships",
+    "AI engineering collaboration",
+    "systems research",
+    "technology collaboration",
+    "open source collaboration",
+  ],
+
+  alternates: {
+    canonical: "https://ontophi.com/contact",
+  },
+
   openGraph: {
-    title: "Contact OntoPhi | Joint Computing Research Systems",
-    description: "Inquire about technology partnerships, academic research collaborations, or engineering career tracks.",
+    title: "Contact | OntoPhi",
+    description:
+      "Contact OntoPhi about research, engineering, partnerships, open source, and technology collaboration.",
+    url: "https://ontophi.com/contact",
+    siteName: "OntoPhi",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Contact | OntoPhi",
+    description:
+      "Contact OntoPhi about research, engineering, partnerships, and collaboration.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

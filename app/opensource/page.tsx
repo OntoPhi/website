@@ -12,7 +12,43 @@ import OpenSourceCTA from "@/components/sections/opensource/OpenSourceCTA";
 export const metadata: Metadata = {
   title: "Open Source",
   description:
-    "Open technologies and collaborative engineering at OntoPhi.",
+    "Explore OntoPhi open-source software, tools, and engineering projects for computing systems, optimization, compilers, runtimes, and edge computing.",
+
+  keywords: [
+    "OntoPhi open source",
+    "open source computing",
+    "compiler projects",
+    "runtime systems",
+    "AI optimization",
+    "edge computing",
+    "systems software",
+    "open source engineering",
+  ],
+
+  alternates: {
+    canonical: "https://ontophi.com/opensource",
+  },
+
+  openGraph: {
+    title: "Open Source | OntoPhi",
+    description:
+      "Open-source software and engineering projects for computing systems, optimization, compilers, runtimes, and edge computing.",
+    url: "https://ontophi.com/opensource",
+    siteName: "OntoPhi",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Open Source | OntoPhi",
+    description:
+      "Explore OntoPhi open-source software, tools, and engineering projects.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function OpenSourcePage() {
@@ -20,7 +56,7 @@ export default function OpenSourcePage() {
     <>
       <Navbar />
 
-      <main className="pt-20">
+      <main className="pt-10">
         <OpenSourceHero />
         <OpenSourcePhilosophy />
         <FeaturedProjects />
@@ -32,3 +68,4 @@ export default function OpenSourcePage() {
     </>
   );
 }
+

@@ -13,7 +13,44 @@ import Collaboration from "@/components/sections/research/Collaboration";
 export const metadata: Metadata = {
   title: "Research",
   description:
-    "OntoPhi research in intelligent computing, neuroscience, systems software, artificial intelligence, and engineering.",
+    "OntoPhi conducts research across computation, systems, optimization, compiler technologies, and cognitive systems, connecting scientific understanding with practical engineering.",
+
+  keywords: [
+    "OntoPhi research",
+    "computing research",
+    "systems research",
+    "optimization research",
+    "compiler research",
+    "computational neuroscience",
+    "cognitive neuroscience",
+    "cognitive systems",
+    "future computing",
+  ],
+
+  alternates: {
+    canonical: "https://ontophi.com/research",
+  },
+
+  openGraph: {
+    title: "Research | OntoPhi",
+    description:
+      "Research across computation, systems, optimization, compiler technologies, and cognitive systems.",
+    url: "https://ontophi.com/research",
+    siteName: "OntoPhi",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Research | OntoPhi",
+    description:
+      "OntoPhi research across computation, systems, optimization, compiler technologies, and cognitive systems.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function ResearchPage() {
@@ -21,7 +58,7 @@ export default function ResearchPage() {
     <>
       <Navbar />
 
-      <main className="pt-20">
+      <main className="pt-10">
         <ResearchHero />
         <ResearchPhilosophy />
         <ResearchPillars /> 
@@ -34,3 +71,4 @@ export default function ResearchPage() {
     </>
   );
 }
+

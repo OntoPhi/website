@@ -9,10 +9,46 @@ import ProductCategories from "@/components/sections/products/ProductCategories"
 import ProductRoadmap from "@/components/sections/products/ProductRoadmap";
 import ProductsCTA from "@/components/sections/products/ProductsCTA";
 
+
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Explore OntoPhi's intelligent computing products and technology roadmap.",
+    "OntoPhi develops computing platforms and software products that connect research, systems engineering, optimization, and real-world deployment.",
+
+  keywords: [
+    "OntoPhi products",
+    "computing platforms",
+    "AI optimization",
+    "edge computing",
+    "AI systems",
+    "software platforms",
+    "computing infrastructure",
+  ],
+
+  alternates: {
+    canonical: "https://ontophi.com/products",
+  },
+
+  openGraph: {
+    title: "Products | OntoPhi",
+    description:
+      "Computing platforms and software products connecting research, engineering, optimization, and deployment.",
+    url: "https://ontophi.com/products",
+    siteName: "OntoPhi",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Products | OntoPhi",
+    description:
+      "OntoPhi computing platforms and software products.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function ProductsPage() {
@@ -20,7 +56,7 @@ export default function ProductsPage() {
     <>
       <Navbar />
 
-      <main className="pt-20">
+      <main className="pt-10">
         <ProductsHero />
         <ProductVision />
 	<ProductCategories />
@@ -32,3 +68,4 @@ export default function ProductsPage() {
     </>
   );
 }
+
