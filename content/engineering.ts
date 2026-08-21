@@ -1,6 +1,6 @@
 export const engineeringDomains = [
   {
-    title: "AI & Machine Learning",
+    title: "Deep Learning",
     description:
       "Building and optimizing machine learning systems, deep learning models, computer vision pipelines, generative AI, and efficient inference.",
   },
