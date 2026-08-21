@@ -1,27 +1,50 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import fs from "fs";
+import path from "path";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://ontophi.com";
 
-  // Core static marketing and institutional routes
-  const staticRoutes = ["", "/about", "/contact", "/careers", "/research", "/engineering", "/insights"].map(
-    (route) => ({
-      url: `${baseUrl}${route}`,
-      lastModified: new Date().toISOString(),
-      changeFrequency: "weekly" as const,
-      priority: route === "" ? 1.0 : 0.8,
-    })
-  );
+  // Core pages
+  const staticRoutes = [
+    "",
+    "/about",
+    "/research",
+    "/engineering",
+    "/products",
+    "/opensource",
+    "/insights",
+    "/careers",
+    "/contact",
+    "/privacy",
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: route === "" ? 1.0 : 0.8,
+  }));
 
-  // Optional: Fetch dynamic blog/research posts from your CMS or local content layer
-  // const posts = await getLatestInsights();
-  // const dynamicRoutes = posts.map(post => ({
-  //   url: `${baseUrl}/insights/${post.slug}`,
-  //   lastModified: new Date(post.updatedAt).toISOString(),
-  //   changeFrequency: 'monthly' as const,
-  //   priority: 0.6,
-  // }));
+  // Local Markdown Insights
+  const insightsDir = path.join(process.cwd(), "content/insights");
 
-  return [...staticRoutes];
+  let insightRoutes: MetadataRoute.Sitemap = [];
+
+  if (fs.existsSync(insightsDir)) {
+    const files = fs
+      .readdirSync(insightsDir)
+      .filter((file) => file.endsWith(".md"));
+
+    insightRoutes = files.map((file) => {
+      const slug = file.replace(/\.md$/, "");
+
+      return {
+        url: `${baseUrl}/insights/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      };
+    });
+  }
+
+  return [...staticRoutes, ...insightRoutes];
 }
-

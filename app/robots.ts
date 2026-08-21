@@ -1,13 +1,12 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/_next/", "/static/"], // Prevents wasteful crawling budgets
+      disallow: ["/api/"],
     },
-    sitemap: "https://ontophi.com",
+    sitemap: "https://ontophi.com/sitemap.xml",
   };
 }
-
