@@ -24,10 +24,10 @@ export default function Navbar() {
       >
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 sm:px-6">
           {/* Logo */}
-	  <Link
+          <Link
             href="/"
             className="flex shrink-0 items-center transition-transform duration-200 hover:scale-[1.02]"
-          >
+          >          
             <Image
               src="/logo/website_print.png"
               alt="OntoPhi Logo"
@@ -58,17 +58,13 @@ export default function Navbar() {
             {/* Join Waitlist */}
             <Link
               href="/waitlist"
-              className={`rounded-full border px-4 py-2 text-xs font-semibold transition-all duration-200 lg:text-sm ${
-                scrolled
-                  ? "border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white dark:border-gray-300 dark:text-gray-200 dark:hover:bg-white dark:hover:text-gray-900"
-                  : "border-gray-800 text-gray-900 hover:bg-gray-900 hover:text-white dark:border-gray-300 dark:text-white dark:hover:bg-white dark:hover:text-gray-900"
-              }`}
+              className="rounded-full border border-gray-300 px-4 py-2 text-xs font-semibold text-gray-700 transition-all duration-200 hover:border-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:border-gray-700 dark:text-gray-300 dark:hover:border-gray-500 dark:hover:bg-gray-900 dark:hover:text-white lg:text-sm"
             >
               Join Waitlist
             </Link>
 
             {/* Theme Toggle */}
-            <div className="flex h-5 items-center border-l border-gray-200 pl-4 dark:border-gray-800">
+            <div className="flex h-6 items-center border-l border-gray-200 pl-4 dark:border-gray-800">
               <ThemeToggle />
             </div>
           </nav>
