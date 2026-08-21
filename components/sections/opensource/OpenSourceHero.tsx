@@ -1,11 +1,21 @@
-import PageHero from "@/components/ui/PageHero";
+import CenteredHero from "@/components/ui/CenteredHero";
 
-export default function OpenSourceHero() {
+export default function CareersHero() {
   return (
-    <PageHero
-      badge="Open Source"
-      title={`Open Technologies\nfor Intelligent\nComputing`}
-      description="We believe innovation grows through transparency, collaboration, and community-driven engineering."
+    <CenteredHero
+      badge="Careers"
+      title="Build the Future With Us"
+      description="Join OntoPhi to solve challenging problems in intelligent computing through research and engineering."
+      topics={[
+        "Research",
+        "Engineering",
+        "Systems",
+        "Future Computing",
+      ]}
+      primaryAction={{
+        label: "Get in Touch",
+        href: "/contact",
+      }}
     />
   );
 }

@@ -1,11 +1,25 @@
-import PageHero from "@/components/ui/PageHero";
+import CenteredHero from "@/components/ui/CenteredHero";
 
 export default function EngineeringHero() {
   return (
-    <PageHero
+    <CenteredHero
       badge="Engineering"
-      title={`Engineering\nIntelligent\nComputing`}
-      description="OntoPhi engineers intelligent computing systems spanning systems software, compiler technologies, AI infrastructure, embedded intelligence, Linux kernel engineering, and high-performance computing."
+      title="Engineering Future Computing"
+      description="OntoPhi transforms research and ideas into efficient software, systems, and technologies across compilers, runtimes, AI infrastructure, embedded computing, and high-performance systems."
+      topics={[
+        "Systems Software",
+        "Compilers & Runtimes",
+        "AI Infrastructure",
+        "Edge Computing",
+      ]}
+      primaryAction={{
+        label: "Explore Research",
+        href: "/research",
+      }}
+      secondaryAction={{
+        label: "Explore Open Engineering",
+        href: "/opensource",
+      }}
     />
   );
 }

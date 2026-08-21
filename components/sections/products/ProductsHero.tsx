@@ -1,11 +1,21 @@
-import PageHero from "@/components/ui/PageHero";
+import CenteredHero from "@/components/ui/CenteredHero";
 
-export default function ProductsHero() {
+export default function CareersHero() {
   return (
-    <PageHero
-      badge="Products"
-      title={`Building the Future\nof Intelligent\nComputing`}
-      description="OntoPhi develops intelligent computing platforms that bridge research, engineering, and real-world deployment."
+    <CenteredHero
+      badge="Careers"
+      title="Build the Future With Us"
+      description="Join OntoPhi to solve challenging problems in intelligent computing through research and engineering."
+      topics={[
+        "Research",
+        "Engineering",
+        "Systems",
+        "Future Computing",
+      ]}
+      primaryAction={{
+        label: "Get in Touch",
+        href: "/contact",
+      }}
     />
   );
 }

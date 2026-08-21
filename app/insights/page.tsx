@@ -2,118 +2,151 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
-import type { Metadata } from "next";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import Container from "@/components/ui/Container";
-import SectionHeader from "@/components/ui/SectionHeader";
 
-export const metadata: Metadata = {
-  title: "Insights & Technical Logs",
-  description: "Read the latest engineering updates, technical analyses, and research notes from the OntoPhi computing infrastructure team.",
-};
-
-interface PostOverview {
+interface Insight {
   slug: string;
   title: string;
-  date: string;
-  author: string;
-  category: string;
   description: string;
+  category: string;
+  date: string;
 }
 
-export default function InsightsPage() {
-  const postsDirectory = path.join(process.cwd(), "content/insights");
-  let posts: PostOverview[] = [];
+function getInsights(): Insight[] {
+  const insightsDir = path.join(process.cwd(), "content", "insights");
 
-  // Safely scan and read local markdown files at server-render time
-  if (fs.existsSync(postsDirectory)) {
-    const filenames = fs.readdirSync(postsDirectory);
+  try {
+    if (!fs.existsSync(insightsDir)) {
+      return [];
+    }
 
-    posts = filenames
+    return fs
+      .readdirSync(insightsDir)
       .filter((filename) => filename.endsWith(".md"))
       .map((filename) => {
         const slug = filename.replace(/\.md$/, "");
-        const filePath = path.join(postsDirectory, filename);
+        const filePath = path.join(insightsDir, filename);
         const fileContent = fs.readFileSync(filePath, "utf8");
         const { data } = matter(fileContent);
 
         return {
           slug,
-          title: data.title || "Untitled Post",
-          date: data.date || "Recent",
-          author: data.author || "OntoPhi",
-          category: data.category || "Research",
-          description: data.description || "",
+          title:
+            typeof data.title === "string" && data.title.trim()
+              ? data.title.trim()
+              : slug,
+          description:
+            typeof data.description === "string"
+              ? data.description.trim()
+              : "",
+          category:
+            typeof data.category === "string" && data.category.trim()
+              ? data.category.trim()
+              : "Research",
+          date:
+            typeof data.date === "string" && data.date.trim()
+              ? data.date.trim()
+              : "",
         };
-      });
+      })
+      .sort((a, b) => {
+        if (!a.date) return 1;
+        if (!b.date) return -1;
 
-    // Sort posts chronologically (newest articles displayed first)
-    posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        return (
+          new Date(b.date).getTime() -
+          new Date(a.date).getTime()
+        );
+      });
+  } catch (error) {
+    console.error("Failed to load insights:", error);
+    return [];
   }
+}
+
+export default function InsightsPage() {
+  const insights = getInsights();
 
   return (
-    <>
+    <div className="min-h-screen bg-white text-gray-900 transition-colors duration-300 dark:bg-gray-950 dark:text-white">
       <Navbar />
 
-      <main className="pt-24 pb-16 bg-white min-h-screen">
-        <Container>
-          <SectionHeader
-            badge="Insights"
-            title="Technical Logs & Research"
-            description="Deep dives into artificial intelligence infrastructure, compiler engineering, and systems software."
-          />
+      <main className="min-h-screen bg-white pt-24 pb-16 transition-colors duration-300 dark:bg-gray-950">
+        <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-12">
+          {/* Header */}
+          <header className="mx-auto max-w-4xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">
+              Insights
+            </p>
 
-          {posts.length === 0 ? (
-            /* Lean fallback empty state for early startup phase */
-            <div className="text-center py-12 max-w-md mx-auto border border-dashed border-gray-200 rounded-xl p-8 mt-12">
-              <p className="text-gray-500 text-sm leading-relaxed">
-                Our initial technical logs and systems research whitepapers are currently being compiled. Check back soon.
+            <h1 className="mt-5 text-4xl font-bold tracking-tight text-gray-900 transition-colors duration-300 sm:text-5xl md:text-6xl dark:text-white">
+              Research &amp; Engineering Insights
+            </h1>
+
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-gray-600 transition-colors duration-300 sm:text-lg dark:text-gray-400">
+              Exploring intelligent computing, systems engineering,
+              artificial intelligence, and the principles shaping
+              future computing.
+            </p>
+          </header>
+
+          {/* Empty state */}
+          {insights.length === 0 ? (
+            <div className="mx-auto mt-14 max-w-md rounded-xl border border-dashed border-gray-200 bg-gray-50 p-8 text-center transition-colors duration-300 dark:border-gray-800 dark:bg-gray-900/50">
+              <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                Our initial technical logs and systems research
+                whitepapers are currently being compiled. Check back soon.
               </p>
             </div>
           ) : (
-            /* High-density grid utilizing our custom startup hover interactions */
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mt-12">
-              {posts.map((post) => (
-                <Link 
-                  key={post.slug} 
-                  href={`/insights/${post.slug}`}
-                  className="group block p-6 bg-white border border-gray-200 rounded-xl shadow-sm transition-all duration-200 ease-in-out hover:border-gray-900 hover:shadow-md hover:-translate-y-0.5 flex flex-col justify-between"
+            /* Insight cards */
+            <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2">
+              {insights.map((insight) => (
+                <Link
+                  key={insight.slug}
+                  href={`/insights/${insight.slug}`}
+                  className="group flex min-h-[250px] flex-col justify-between rounded-2xl border border-gray-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gray-900 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900 dark:hover:border-gray-500"
                 >
-                  <div className="space-y-3">
-                    {/* Category Stamp & Timestamp metadata */}
-                    <div className="flex items-center justify-between text-xs font-semibold tracking-wider text-gray-500 uppercase">
-                      <span className="text-gray-600 bg-gray-100 px-2.5 py-0.5 rounded-full text-[10px]">
-                        {post.category}
+                  <div>
+                    <div className="flex items-center justify-between gap-4 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                      <span className="rounded-full bg-gray-100 px-2.5 py-1 text-[10px] text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+                        {insight.category}
                       </span>
-                      <span>{post.date}</span>
+
+                      {insight.date && (
+                        <span className="shrink-0">
+                          {insight.date}
+                        </span>
+                      )}
                     </div>
 
-                    {/* Highly scannable title element */}
-                    <h3 className="text-lg font-bold text-gray-900 tracking-tight transition-colors group-hover:text-black">
-                      {post.title}
-                    </h3>
+                    <h2 className="mt-6 text-xl font-bold tracking-tight text-gray-900 transition-colors duration-300 group-hover:text-black dark:text-white dark:group-hover:text-gray-200">
+                      {insight.title}
+                    </h2>
 
-                    {/* Summary Excerpt */}
-                    <p className="text-sm text-gray-500 leading-relaxed line-clamp-3">
-                      {post.description}
-                    </p>
+                    {insight.description && (
+                      <p className="mt-4 line-clamp-3 text-sm leading-6 text-gray-500 transition-colors duration-300 dark:text-gray-400">
+                        {insight.description}
+                      </p>
+                    )}
                   </div>
 
-                  {/* Contextual link direction flag */}
-                  <div className="pt-4 flex items-center text-xs font-bold text-gray-900 uppercase tracking-wider gap-1 group-hover:underline">
-                    Read Analysis <span>→</span>
+                  <div className="mt-8 flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-gray-900 transition-colors duration-300 dark:text-gray-200">
+                    Read Insight
+                    <span className="transition-transform duration-200 group-hover:translate-x-1">
+                      →
+                    </span>
                   </div>
                 </Link>
               ))}
             </div>
           )}
-        </Container>
+        </div>
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
-

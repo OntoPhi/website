@@ -1,70 +1,106 @@
-import {
-  EngineeringDomain,
-  Platform,
-  ProcessStep,
-} from "@/types/engineering";
-
-export const engineeringDomains: EngineeringDomain[] = [
+export const engineeringDomains = [
+  {
+    title: "AI & Machine Learning",
+    description:
+      "Building and optimizing machine learning systems, deep learning models, computer vision pipelines, generative AI, and efficient inference.",
+  },
   {
     title: "Systems Software",
     description:
-      "Operating systems, Linux kernel, runtime systems, and low-level software engineering.",
+      "Engineering Linux, kernels, device drivers, runtime systems, low-level software, and performance-critical computing infrastructure.",
   },
   {
-    title: "Compiler Technologies",
+    title: "Compilers & Runtimes",
     description:
-      "Compilers, optimization frameworks, code generation, and performance engineering.",
+      "Developing compiler technologies, intermediate representations, execution runtimes, graph optimization, and hardware-aware acceleration.",
   },
   {
     title: "AI Infrastructure",
     description:
-      "Model deployment, inference optimization, distributed AI systems, and scalable infrastructure.",
+      "Building the software foundations for model deployment, inference, orchestration, distributed execution, and scalable AI workloads.",
   },
   {
-    title: "Embedded Intelligence",
+    title: "Edge & Embedded Computing",
     description:
-      "Edge AI, embedded systems, robotics, computer vision, and real-time computing.",
+      "Engineering efficient computing systems for embedded platforms, GPUs, NPUs, robotics, automotive systems, and real-time applications.",
+  },
+  {
+    title: "High-Performance Computing",
+    description:
+      "Optimizing compute-intensive workloads through parallel computing, GPU acceleration, memory efficiency, and system-level performance engineering.",
   },
 ];
 
-export const engineeringProcess: ProcessStep[] = [
+export const engineeringProcess = [
   {
     step: "01",
-    title: "Design",
-    description: "Architect reliable and scalable systems.",
+    title: "Understand",
+    description:
+      "Define the problem, constraints, requirements, and system context.",
   },
   {
     step: "02",
-    title: "Develop",
-    description: "Build robust software and infrastructure.",
+    title: "Design",
+    description:
+      "Develop architectures, algorithms, interfaces, and implementation strategies.",
   },
   {
     step: "03",
-    title: "Optimize",
-    description: "Improve performance and efficiency.",
+    title: "Prototype",
+    description:
+      "Build focused prototypes to test technical assumptions and feasibility.",
   },
   {
     step: "04",
+    title: "Implement",
+    description:
+      "Turn validated designs into robust software, systems, and engineering components.",
+  },
+  {
+    step: "05",
+    title: "Optimize",
+    description:
+      "Improve performance, memory efficiency, power consumption, scalability, and reliability.",
+  },
+  {
+    step: "06",
     title: "Validate",
-    description: "Benchmark and verify engineering quality.",
+    description:
+      "Measure systems against defined benchmarks, requirements, and real-world conditions.",
+  },
+  {
+    step: "07",
+    title: "Deploy",
+    description:
+      "Integrate solutions into target platforms and production environments.",
+  },
+  {
+    step: "08",
+    title: "Evolve",
+    description:
+      "Continuously improve systems through feedback, measurement, and new engineering insights.",
   },
 ];
 
-export const platforms: Platform[] = [
+export const platforms = [
   {
-    title: "Linux",
-    description: "Kernel, drivers, runtime, and systems software.",
+    title: "Edge Computing",
+    description:
+      "Efficient computing and AI inference close to where data is generated, with focus on latency, power, and resource constraints.",
   },
   {
-    title: "Embedded",
-    description: "Edge AI and intelligent embedded platforms.",
-  },
-  {
-    title: "Cloud",
-    description: "Scalable AI infrastructure and deployment.",
+    title: "Embedded Systems",
+    description:
+      "Software and compute solutions for resource-constrained, real-time, automotive, robotics, and specialized embedded platforms.",
   },
   {
     title: "Accelerated Computing",
-    description: "GPU, NPU, TPU, and heterogeneous computing.",
+    description:
+      "GPU, NPU, and heterogeneous computing architectures optimized for demanding workloads and high-throughput execution.",
+  },
+  {
+    title: "Distributed Systems",
+    description:
+      "Scalable infrastructure for distributed workloads, model serving, orchestration, and large-scale computation.",
   },
 ];

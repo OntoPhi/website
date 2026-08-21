@@ -1,34 +1,79 @@
-import { Technology } from "@/types/technology";
+export interface TechCategory {
+  layer: string;
+  badge: string;
+  tools: string[];
+}
 
-export const coreTechnologies = [
+export const technologies: TechCategory[] = [
   {
-    title: "Artificial Intelligence",
-    description:
-      "Machine Learning, Deep Learning, Foundation Models, and Agentic AI.",
+    layer: "Cognitive Neuroscience & Brain-Inspired Computing",
+    badge: "Neuroscience",
+    tools: [
+      "NEST Simulator",
+      "Brian 2",
+      "Nengo",
+      "MNE-Python",
+      "SpiNNaker",
+    ],
   },
   {
-    title: "Systems Software",
-    description:
-      "Operating Systems, Linux Kernel, Runtime Systems, and Device Drivers.",
+    layer: "Machine Learning & AI Systems",
+    badge: "AI Systems",
+    tools: [
+      "PyTorch",
+      "PyTorch Lightning",
+      "ONNX",
+      "ONNX Runtime",
+      "JAX",
+      "XLA",
+      "Triton Inference Server",
+    ],
   },
   {
-    title: "High Performance Computing",
-    description:
-      "GPU Computing, Parallel Computing, Scientific Computing, and Optimization.",
+    layer: "Computer Vision & Model Optimization",
+    badge: "AI Engineering",
+    tools: [
+      "OpenCV",
+      "TensorRT",
+      "CUDA",
+      "Triton",
+      "Model Optimization",
+      "Inference Optimization",
+    ],
   },
   {
-    title: "Edge Computing",
-    description:
-      "Embedded AI, Robotics, Autonomous Systems, and Industrial AI.",
+    layer: "Compilers & Intermediate Representations",
+    badge: "Compilers",
+    tools: [
+      "LLVM",
+      "Clang",
+      "MLIR",
+      "Apache TVM",
+      "Triton Kernel Language",
+    ],
   },
   {
-    title: "Compiler Technologies",
-    description:
-      "LLVM, MLIR, TVM, Graph Compilation, and Code Generation.",
+    layer: "Systems Software & Runtime Engineering",
+    badge: "Systems",
+    tools: [
+      "Linux Kernel",
+      "Device Drivers",
+      "Runtime Systems",
+      "eBPF",
+      "Performance Profiling",
+      "Memory Management",
+    ],
   },
   {
-    title: "Brain-Inspired Computing",
-    description:
-      "Neuroscience, Cognitive Intelligence, Neuroengineering, and Future Computing.",
+    layer: "Embedded & Heterogeneous Computing",
+    badge: "Edge Computing",
+    tools: [
+      "CUDA",
+      "SYCL",
+      "GPU / NPU Computing",
+      "RTOS",
+      "FreeRTOS",
+      "Embedded Linux",
+    ],
   },
 ];

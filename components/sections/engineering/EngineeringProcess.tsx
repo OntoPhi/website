@@ -6,15 +6,17 @@ import { engineeringProcess } from "@/content/engineering";
 
 export default function EngineeringProcess() {
   return (
-    <section className="py-24">
+    <section className="bg-gray-50 py-20 transition-colors duration-300 dark:bg-gray-900/40 sm:py-24">
       <Container>
         <SectionHeader
-          badge="Process"
-          title="Engineering Process"
-          description="Every engineering project follows a structured and measurable workflow."
+          badge="Engineering Process"
+          title="From Idea to System"
+          description="We turn ideas and research into reliable systems through disciplined design, implementation, optimization, and validation."
         />
 
-        <Timeline items={engineeringProcess} />
+        <div className="mt-12">
+          <Timeline items={engineeringProcess} />
+        </div>
       </Container>
     </section>
   );

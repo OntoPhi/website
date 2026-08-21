@@ -2,31 +2,31 @@ import React from "react";
 
 interface PageHeroProps {
   badge: string;
-  title: string; // Change back to string for standard parsing
+  title: string;
   description: string;
 }
 
-export default function PageHero({ badge, title, description }: PageHeroProps) {
+export default function PageHero({
+  badge,
+  title,
+  description,
+}: PageHeroProps) {
   return (
-    <section className="flex flex-col items-center text-center py-20 px-4 w-full max-w-5xl mx-auto">
-      {/* Badge Element */}
-      <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gray-600 bg-gray-100 rounded-full mb-4">
+    <section className="flex w-full max-w-5xl flex-col items-center px-4 py-16 text-center">
+      {/* Badge */}
+      <span className="mb-4 rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gray-600 transition-colors duration-300 dark:bg-gray-900 dark:text-gray-400">
         {badge}
       </span>
-      
-      {/* 
-        The 'max-w-2xl sm:max-w-none' ensures the container doesn't choke the text wide-span width.
-        The 'whitespace-normal' ensures the browser automatically fits layout based on viewports.
-      */}
-      <h1 className="w-full max-w-2xl sm:max-w-none text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight mb-6 whitespace-normal">
+
+      {/* Hero Title */}
+      <h1 className="mb-6 w-full max-w-2xl whitespace-normal text-4xl font-extrabold leading-tight tracking-tight text-gray-900 transition-colors duration-300 dark:text-white sm:max-w-none sm:text-5xl md:text-6xl">
         {title}
       </h1>
-      
-      {/* Subtext Description */}
-      <p className="text-base sm:text-lg text-gray-500 max-w-2xl leading-relaxed">
+
+      {/* Description */}
+      <p className="max-w-2xl text-base leading-relaxed text-gray-500 transition-colors duration-300 dark:text-gray-400 sm:text-lg">
         {description}
       </p>
     </section>
   );
 }
-

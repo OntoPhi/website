@@ -125,9 +125,9 @@ export default function Hero() {
               <div className="absolute inset-4 rounded-full bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900/50 dark:via-gray-950 dark:to-gray-900/50 opacity-80 blur-3xl transition-colors duration-300" />
 
               {/* Decorative Concentric Rings */}
-              <div className="absolute inset-0 rounded-full border border-gray-300 dark:border-gray-800 transition-colors duration-300" />
-              <div className="absolute inset-[12.5%] rounded-full border border-gray-300 dark:border-gray-800 transition-colors duration-300" />
-              <div className="absolute inset-[25%] rounded-full border border-gray-300 dark:border-gray-800 transition-colors duration-300" />
+              <div className="absolute inset-0 rounded-full border border-gray-400 dark:border-gray-800 transition-colors duration-300" />
+              <div className="absolute inset-[12.5%] rounded-full border border-gray-400 dark:border-gray-800 transition-colors duration-300" />
+              <div className="absolute inset-[25%] rounded-full border border-gray-400 dark:border-gray-800 transition-colors duration-300" />
 
               {/* Central Adaptive Brand Identity Card */}
               <div className="relative z-10 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 sm:p-8 shadow-xl transition-colors duration-300">

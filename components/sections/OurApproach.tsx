@@ -7,7 +7,7 @@ import { approach } from "@/content/approach";
 
 export default function OurApproach() {
   return (
-    <Section className="border-t border-gray-100">
+    <Section className="border-t border-gray-200">
       <Container>
         <SectionTitle
           eyebrow="Our Approach"
@@ -34,3 +34,4 @@ export default function OurApproach() {
     </Section>
   );
 }
+

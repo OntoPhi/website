@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 
+
 export default function AboutHero() {
   return (
     <section className="py-16 sm:py-24 lg:py-32">
@@ -12,12 +13,12 @@ export default function AboutHero() {
           </p>
 
           {/* Core Philosophy Statement */}
-          <p className="mt-4 text-base font-medium italic tracking-wide text-gray-600">
+          <p className="mt-auto text-base font-medium italic tracking-wide text-gray-600">
             Science is Curiosity
           </p>
 
           {/* Unified Main Headline - Matches the Hero Page exactly */}
-          <h1 className="mt-6 text-2xl font-semibold tracking-tight text-black sm:text-3xl md:text-6xl xl:text-7xl xl:leading-[1.15]">
+          <h1 className="mt-auto text-3xl font-semibold tracking-tight text-black dark:text-white sm:text-3xl md:text-6xl xl:text-7xl xl:leading-[1.15] transition-colors duration-300">
             Exploring the Foundations of Future Computing
           </h1>
 
