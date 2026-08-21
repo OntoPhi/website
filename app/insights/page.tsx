@@ -6,6 +6,51 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Insights",
+  description:
+    "OntoPhi insights on computing systems, optimization, compiler technologies, AI engineering, neuroscience, cognitive systems, and emerging approaches to future computing.",
+
+  keywords: [
+    "OntoPhi insights",
+    "computing insights",
+    "AI engineering",
+    "compiler technology",
+    "runtime systems",
+    "edge computing",
+    "computational neuroscience",
+    "cognitive systems",
+    "systems research",
+  ],
+
+  alternates: {
+    canonical: "https://ontophi.com/insights",
+  },
+
+  openGraph: {
+    title: "Insights | OntoPhi",
+    description:
+      "Articles and technical insights covering computing systems, engineering, optimization, and cognitive systems.",
+    url: "https://ontophi.com/insights",
+    siteName: "OntoPhi",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Insights | OntoPhi",
+    description:
+      "OntoPhi articles and technical insights on computing, engineering, and cognitive systems.",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 interface Insight {
   slug: string;
   title: string;
