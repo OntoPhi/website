@@ -2,20 +2,21 @@ import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Timeline from "@/components/ui/Timeline";
 
-import { hiringSteps } from "@/content/careers";
+/*import { hiringSteps } from "@/content/careers";*/
 
 export default function HiringProcess() {
   return (
     <section className="py-16">
-      <Container>
+      {/* <Container>
         <SectionHeader
-/*          badge="Hiring Process"
+          badge="Hiring Process"
           title="Simple & Transparent"
-          description="Our hiring process is designed to identify talent while respecting your time." */
+          description="Our hiring process is designed to identify talent while respecting your time."
         />
 
         <Timeline items={hiringSteps} />
-      </Container>
+      </Container> */}
     </section>
   );
 }
+
