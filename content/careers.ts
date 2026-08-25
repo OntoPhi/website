@@ -23,20 +23,3 @@ export const roles: Role[] = [
   },
 ];
 
-export const hiringSteps: HiringStep[] = [
-  {
-    step: "01",
-    title: "Application",
-    description: "Submit your resume and portfolio.",
-  },
-  {
-    step: "02",
-    title: "Technical Discussion",
-    description: "Engineering and research conversation.",
-  },
-  {
-    step: "03",
-    title: "Final Interview",
-    description: "Culture, vision, and long-term goals.",
-  },
-];
