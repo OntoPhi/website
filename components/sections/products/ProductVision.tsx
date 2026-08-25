@@ -6,7 +6,7 @@ export default function ProductVision() {
     <section className="py-16">
       <Container>
         <SectionHeader
-          badge="Vision"
+          badge="Product Vision"
           title="From Research to Products"
           description="Every OntoPhi product is built upon scientific research, robust engineering, and continuous innovation to create practical intelligent computing solutions."
         />

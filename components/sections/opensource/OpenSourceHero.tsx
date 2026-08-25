@@ -10,11 +10,10 @@ export default function CareersHero() {
         "Research",
         "Engineering",
         "Systems",
-        "Future Computing",
       ]}
-      primaryAction={{
-        label: "Get in Touch",
-        href: "/contact",
+     primaryAction={{
+        label: "Explore Research",
+        href: "/insights",
       }}
     />
   );

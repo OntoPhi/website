@@ -7,10 +7,10 @@ export default function ResearchHero() {
       title="Exploring the Foundations of Computation and Cognition"
       description="OntoPhi explores fundamental questions across cognition, computation, and emerging computing systems—connecting scientific understanding with new possibilities in engineering."
       topics={[
-        "Cognition",
-        "Computation",
-        "Deep Learning",
-        "Future Computing",
+        "Computational Neuroscience",
+        "Cognitive Neuroscience",
+        "Neuro engineering ",
+        "Cognitive Systems ",
       ]}
       primaryAction={{
         label: "Explore Research",
