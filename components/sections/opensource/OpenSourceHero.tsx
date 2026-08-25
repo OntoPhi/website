@@ -3,9 +3,9 @@ import CenteredHero from "@/components/ui/CenteredHero";
 export default function CareersHero() {
   return (
     <CenteredHero
-      badge="Careers"
-      title="Build the Future With Us"
-      description="Join OntoPhi to solve challenging problems in intelligent computing through research and engineering."
+      badge="Open Source"
+      title="Open Paradigms for Intelligent Computing"
+      description="We believe innovation grows through transparency, collaboration, and community-driven engineering."
       topics={[
         "Research",
         "Engineering",

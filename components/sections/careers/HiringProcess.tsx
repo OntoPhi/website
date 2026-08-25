@@ -9,9 +9,9 @@ export default function HiringProcess() {
     <section className="py-16">
       <Container>
         <SectionHeader
-          badge="Hiring Process"
+/*          badge="Hiring Process"
           title="Simple & Transparent"
-          description="Our hiring process is designed to identify talent while respecting your time."
+          description="Our hiring process is designed to identify talent while respecting your time." */
         />
 
         <Timeline items={hiringSteps} />
